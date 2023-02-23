@@ -36,14 +36,6 @@ class Diary
     # returns all the diary entries
   end
 
-  def add(task) # task is a strong
-    # adds the task to a list
-  end
-
-  def all_tasks
-    # return all tasks
-  end
-
   def select_entry(wpm, minutes) # wpm and minutes are integers
     # returns appropriate diary entry based on those parameters
   end
@@ -55,22 +47,41 @@ def DiaryEntry
     #
   end
 
-  def title
-    # returns title
-  end
-
-  def content
-    # returns content
-  end
-
   def count_words(content) # content is a string
     # returns an integer of how many words there are in the entry
   end
 
-  def contact_list
-    # returns a contact list with numbers all stored in a hash
+  def pull_numbers_from_content(entry)
+    # parses through content to extract phone numbers
   end
 
+  def contact_list
+    # returns a contact list with numbers all stored in an array of arrays
+  end
+
+end
+
+class Todo
+  def initialize
+  end
+
+  def add(task) # task is a strong
+    # adds the task to a list
+  end
+
+  def all_tasks
+    # return all tasks
+  end
+end
+
+class Contacts
+  def pull_numbers_from_content(entry)
+    # parses through content to extract phone numbers
+  end
+
+  def contact_list
+    # returns a contact list with numbers all stored in an array of arrays
+  end
 end
 
 3. 
@@ -104,8 +115,7 @@ diary.count_words # => 6
 # to, but not over, the length that the user could read in the minutes they
 # have available given their reading speed.
 diary = Diary.new
-diary_entry_1 =
-  DiaryEntry.new("my title 1", "my contents my contents my contents")
+diary_entry_1 = DiaryEntry.new("my title 1", "my contents my contents my contents")
 diary_entry_2 = DiaryEntry.new("my title 2", "my contents")
 diary.add(diary_entry_1)
 diary.add(diary_entry_2)
